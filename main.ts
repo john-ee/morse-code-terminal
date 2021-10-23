@@ -26,7 +26,7 @@ function letter_decoder(code: string): number {
     
 }
 
-let MAX = 30
+let MAX = 25
 let IDLE = 10
 let code = ""
 let word = [""]
@@ -40,7 +40,7 @@ input.onGesture(Gesture.Shake, function on_gesture_shake() {
     
     code = ""
     for (let i = 0; i < word.length; i++) {
-        letter_decoder(word[i])
+        // letter_decoder(word[i])
         radio.sendString(word[i])
     }
     word = []

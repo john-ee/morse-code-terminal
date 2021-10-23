@@ -63,7 +63,7 @@ def on_gesture_shake():
     global word
     code = ""
     for i in range(len(word)):
-        letter_decoder(word[i])
+        #letter_decoder(word[i])
         radio.send_string(word[i])
     word = []
     basic.clear_screen()
@@ -91,7 +91,7 @@ def letter_decoder(code):
             """)
         return 0
 
-MAX = 30
+MAX = 25
 IDLE = 10
 code = ""
 word = [""]

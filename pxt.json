@@ -1,5 +1,5 @@
 {
-    "name": "Morse Code Tester",
+    "name": "Morse Code Terminal",
     "description": "",
     "dependencies": {
         "core": "*",

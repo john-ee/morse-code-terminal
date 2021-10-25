@@ -120,6 +120,15 @@ def on_forever():
         basic.clear_screen()
         code = ""
     basic.pause(10)
+
+
+THRESHOLD = 150
+CYCLE = 300
+counter = 0
+def on_forever2():
+    global counter
+    basic.pause(IDLE)
+
 radio.on_received_string(on_received_code)
 input.on_gesture(Gesture.SHAKE, on_gesture_shake)
 basic.forever(on_forever)

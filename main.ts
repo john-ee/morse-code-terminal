@@ -31,6 +31,14 @@ let IDLE = 10
 let code = ""
 let word = [""]
 word = []
+let THRESHOLD = 150
+let CYCLE = 300
+let counter = 0
+function on_forever2() {
+    
+    basic.pause(IDLE)
+}
+
 radio.onReceivedString(function on_received_code(receivedString: string) {
     letter_decoder(receivedString)
     basic.clearScreen()

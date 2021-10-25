@@ -5,7 +5,7 @@
 
 Use this code to teach kids Morse Code !
 You can press the A button, with short presses being dots and long presses dash, and store that code by pressing B.
-It will tell you if you coded a letter correctly. When you're ready, shake the therminal to send your secret message by radio wave to another terminal and it display your message.
+It will tell you if you coded a letter correctly. When you're ready, shake the terminal to send your secret message by radio wave to another terminal and it display your message.
 
 ## Edit this project ![Build status badge](https://github.com/john-ee/morse-code-terminal/workflows/MakeCode/badge.svg)
 

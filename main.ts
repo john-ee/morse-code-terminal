@@ -29,29 +29,19 @@ let IDLE = 10
 let code = ""
 let word = [""]
 let THRESHOLD = 150
-let CYCLE = 300
+//let CYCLE = 300
 let counter = 0
+let state = 0
+input.onButtonPressed(Button.A, function() {
+    state = 1
+})
+
 function on_forever2() {
-    
-    basic.pause(IDLE)
+    let cycle = 0
+    basic.pause(THRESHOLD)
 }
 
-radio.onReceivedString(function on_received_code(receivedString: string) {
-    letter_decoder(receivedString)
-    basic.clearScreen()
-})
-input.onGesture(Gesture.Shake, function on_gesture_shake() {
-    
-    
-    code = ""
-    for (let i = 0; i < word.length; i++) {
-        // letter_decoder(word[i])
-        radio.sendString(word[i])
-    }
-    word = []
-    basic.clearScreen()
-})
-basic.forever(function on_forever() {
+function on_forever() {
     let decoded: number;
     let counting = 0
     let spacestart = control.millis()
@@ -70,7 +60,7 @@ basic.forever(function on_forever() {
         // -
         code = "" + code + "-"
     }
-    
+
     if (input.buttonIsPressed(Button.B)) {
         decoded = letter_decoder(code)
         if (decoded == 1) {
@@ -80,6 +70,21 @@ basic.forever(function on_forever() {
         basic.clearScreen()
         code = ""
     }
-    
+
     basic.pause(10)
+}
+
+radio.onReceivedString(function on_received_code(receivedString: string) {
+    letter_decoder(receivedString)
+    basic.clearScreen()
 })
+input.onGesture(Gesture.Shake, function on_gesture_shake() {
+    code = ""
+    for (let i = 0; i < word.length; i++) {
+        // letter_decoder(word[i])
+        radio.sendString(word[i])
+    }
+    word = []
+    basic.clearScreen()
+})
+basic.forever(on_forever)

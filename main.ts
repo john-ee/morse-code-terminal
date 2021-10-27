@@ -8,7 +8,6 @@ function letter_decoder(code: string): number {
         if (code == MORSE_CODE[i]) {
             indent = i
         }
-        
     }
     if (indent > -1) {
         basic.showString(MORSE_DECODE[indent])
@@ -23,14 +22,12 @@ function letter_decoder(code: string): number {
             `)
         return 0
     }
-    
 }
 
 let MAX = 25
 let IDLE = 10
 let code = ""
 let word = [""]
-word = []
 let THRESHOLD = 150
 let CYCLE = 300
 let counter = 0
@@ -56,8 +53,6 @@ input.onGesture(Gesture.Shake, function on_gesture_shake() {
 })
 basic.forever(function on_forever() {
     let decoded: number;
-    
-    
     let counting = 0
     let spacestart = control.millis()
     while (input.buttonIsPressed(Button.A)) {
@@ -81,7 +76,6 @@ basic.forever(function on_forever() {
         if (decoded == 1) {
             word.push(code)
         }
-        
         // basic.show_number(len(word))
         basic.clearScreen()
         code = ""
